@@ -28,6 +28,7 @@ import org.scalatest.concurrent.PatienceConfiguration
 import org.scalatest.mockito.MockitoSugar
 import org.scalatest.{BeforeAndAfterEach, Suite}
 import org.scalatestplus.play.OneAppPerSuite
+import play.api.Application
 import play.api.inject.bind
 import play.api.inject.guice.GuiceApplicationBuilder
 import play.api.libs.json.Json
@@ -190,8 +191,10 @@ trait BaseSpec extends UnitSpec with OneAppPerSuite with PatienceConfiguration w
 
   implicit val hc = HeaderCarrier()
 
-  val localGuiceApplicationBuilder = GuiceApplicationBuilder()
+  lazy val localGuiceApplicationBuilder = GuiceApplicationBuilder()
     .overrides(bind[TemplateRenderer].toInstance(MockTemplateRenderer))
+
+  override implicit lazy val app: Application = localGuiceApplicationBuilder.build()
 
   def injected[T](c: Class[T]): T = app.injector.instanceOf(c)
   def injected[T](implicit evidence: ClassTag[T]) = app.injector.instanceOf[T]
