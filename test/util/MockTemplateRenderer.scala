@@ -23,7 +23,7 @@ import services.http.WsAllMethods
 import scala.concurrent.duration._
 
 
-class MockTemplateRenderer extends LocalTemplateRenderer(MockitoSugar.mock[WsAllMethods]) {
+object MockTemplateRenderer extends LocalTemplateRenderer(MockitoSugar.mock[WsAllMethods]) {
   override lazy val templateServiceBaseUrl = "http://example.com/template/mustache"
   override val refreshAfter = 10 minutes
 

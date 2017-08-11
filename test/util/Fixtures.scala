@@ -191,7 +191,7 @@ trait BaseSpec extends UnitSpec with OneAppPerSuite with PatienceConfiguration w
   implicit val hc = HeaderCarrier()
 
   def localGuiceApplicationBuilder = GuiceApplicationBuilder()
-    .overrides(bind[TemplateRenderer].toInstance(new MockTemplateRenderer))
+    .overrides(bind[TemplateRenderer].toInstance(MockTemplateRenderer))
 
   def injected[T](c: Class[T]): T = app.injector.instanceOf(c)
   def injected[T](implicit evidence: ClassTag[T]) = app.injector.instanceOf[T]
