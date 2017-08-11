@@ -24,7 +24,7 @@ import uk.gov.hmrc.renderer.TemplateRenderer
 
 import scala.concurrent.duration._
 
-class LocalTemplateRenderer @Inject()(override val connection: WsAllMethods) extends TemplateRenderer with ServicesConfig {
+class LocalTemplateRenderer @Inject() (override val connection: WsAllMethods) extends TemplateRenderer with ServicesConfig {
   override lazy val templateServiceBaseUrl = baseUrl("frontend-template-provider")
   override val refreshAfter: Duration = 10 minutes
 }
