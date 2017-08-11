@@ -16,7 +16,7 @@
 
 package controllers
 
-import config.{ConfigDecorator, LocalMustacheRenderer}
+import config.ConfigDecorator
 import connectors.{FrontEndDelegationConnector, PertaxAuditConnector, PertaxAuthConnector}
 import controllers.bindable.Origin
 import models._
@@ -27,7 +27,6 @@ import org.mockito.Mockito._
 import org.scalatest.mockito.MockitoSugar
 import play.api.Application
 import play.api.inject._
-import play.api.inject.guice.GuiceApplicationBuilder
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
 import play.twirl.api.Html
@@ -39,10 +38,9 @@ import uk.gov.hmrc.play.audit.model.DataEvent
 import uk.gov.hmrc.play.frontend.auth.connectors.domain.ConfidenceLevel
 import uk.gov.hmrc.play.http.HeaderCarrier
 import uk.gov.hmrc.play.partials.HtmlPartial
-import uk.gov.hmrc.renderer.MustacheRendererTrait
 import uk.gov.hmrc.time.TaxYearResolver
 import util.Fixtures._
-import util.{BaseSpec, Fixtures, LocalPartialRetriever, MockMustacheRenderer}
+import util.{BaseSpec, Fixtures, LocalPartialRetriever}
 
 import scala.concurrent.Future
 

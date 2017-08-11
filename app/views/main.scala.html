@@ -68,7 +68,7 @@
 
 
 @{
-  config.StaticGlobalDependencies.deps.localMustacheRenderer.renderDefaultTemplate(layouts.article(mainContent, includeGridWrapper, articleClasses), Map[String,Any](
+  config.StaticGlobalDependencies.deps.templateRenderer.renderDefaultTemplate(layouts.article(mainContent, includeGridWrapper, articleClasses), Map[String,Any](
     "linkElems" -> Map(
       "url" -> controllers.routes.AssetsController.at("stylesheets/pertaxMain.css")
     ),

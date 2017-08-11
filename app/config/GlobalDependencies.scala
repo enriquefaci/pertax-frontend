@@ -20,6 +20,7 @@ import javax.inject.{Inject, Singleton}
 
 import connectors.PertaxAuditConnector
 import play.api.{Configuration, Play}
+import uk.gov.hmrc.renderer.TemplateRenderer
 
 
 /**
@@ -29,7 +30,7 @@ import play.api.{Configuration, Play}
 class GlobalDependencies @Inject()(
   val pertaxAuditConnector: PertaxAuditConnector,
   val configuration: Configuration,
-  val localMustacheRenderer: LocalMustacheRenderer
+  val templateRenderer: TemplateRenderer
 )
 
 /**

@@ -14,20 +14,17 @@
  * limitations under the License.
  */
 
-package util
+package config
 
-import config.LocalMustacheRenderer
-import org.scalatest.mockito.MockitoSugar
-import play.twirl.api.Html
+import javax.inject.Inject
+
 import services.http.WsAllMethods
+import uk.gov.hmrc.play.config.ServicesConfig
+import uk.gov.hmrc.renderer.TemplateRenderer
+
 import scala.concurrent.duration._
 
-
-class MockMustacheRenderer extends LocalMustacheRenderer(MockitoSugar.mock[WsAllMethods]) {
-  override lazy val templateServiceBaseUrl = "http://example.com/template/mustache"
-  override val refreshAfter = 10 minutes
-
-  override def renderDefaultTemplate = (content: Html, extraArgs: Map[String, Any]) => {
-    content
-  }
+class LocalTemplateRenderer @Inject()(override val connection: WsAllMethods) extends TemplateRenderer with ServicesConfig {
+  override lazy val templateServiceBaseUrl = baseUrl("frontend-template-provider")
+  override val refreshAfter: Duration = 10 minutes
 }

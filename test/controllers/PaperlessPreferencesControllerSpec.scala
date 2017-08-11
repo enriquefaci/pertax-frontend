@@ -16,7 +16,7 @@
 
 package controllers
 
-import config.LocalMustacheRenderer
+import config.LocalTemplateRenderer
 import connectors.{FrontEndDelegationConnector, PertaxAuditConnector, PertaxAuthConnector}
 import models.UserDetails
 import org.mockito.Matchers.{eq => meq, _}
@@ -32,7 +32,7 @@ import services.{CitizenDetailsService, PreferencesFrontendService, UserDetailsS
 import uk.gov.hmrc.play.frontend.auth.connectors.domain.ConfidenceLevel
 import uk.gov.hmrc.play.partials.HtmlPartial
 import util.Fixtures._
-import util.{BaseSpec, LocalPartialRetriever, MockMustacheRenderer}
+import util.{BaseSpec, LocalPartialRetriever, MockTemplateRenderer}
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
